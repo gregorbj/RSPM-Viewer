@@ -211,6 +211,36 @@
               }
             });
           });
+        $(function ()
+          { $("#emission-rate-popover").popover({ 
+              trigger: "hover",
+              html: true,
+              placement: "top",
+              content: function() {
+                  return $('#emission-rate-popover-content').html();
+              }
+            });
+          });
+        $(function ()
+          { $("#cost-pct-popover").popover({ 
+              trigger: "hover",
+              html: true,
+              placement: "top",
+              content: function() {
+                  return $('#cost-pct-popover-content').html();
+              }
+            });
+          });
+        $(function ()
+          { $("#low-pct-popover").popover({ 
+              trigger: "hover",
+              html: true,
+              placement: "top",
+              content: function() {
+                  return $('#low-pct-popover-content').html();
+              }
+            });
+          });
     </script>
   
 </head>
@@ -406,7 +436,7 @@
                     <p><strong>Level 1 (Adopted Plans):</strong> No change from 2010.</p>                                                            
                     <p><strong>Level 2:</strong> Activity center growth, 2 x transit service, 10% bike diversion.</p>                                                            
                     <p><strong>Level 3:</strong> Activity center growth, 4 x transit service, 10% bike diversion, increase paid parking in activity centers & Ashland with cashout.</p>                                                            
-                    <p><strong>Level 4:</strong> Activity center growth, 4 x transit service, 20% bike diversion, increase paid parking in activity centers & Ashland.</p>                                                            
+                    <p><strong>Level 4:</strong> Activity center growth, 4 x transit service, 55% diversion through large adoption of e-bikes, increase paid parking in activity centers & Ashland.</p>                                                            
                 </div>
             </div>
               <div class='span3 pietitle' id='Marketing' style='background-color:#D0D0D0;'>
@@ -436,9 +466,9 @@
                 </div>
                 <div id='fleet-popover-content' style='display: none'>
                     <p><strong>Vehicles & Fuels:</strong> Factors representing changes to future vehicles and fuels.</p>                                                            
-                    <p><strong>Level 0:</strong> Baseline vehicle technology mix and carbon intensity of fuels, light-trucks are 45% of the fleet, and the average vehicle age is 10.5 years.</p>                                                            
-                    <p><strong>Level 1 (Reference):</strong> Baseline vehicle technology mix, average carbon intensity of fuels reduced by commercial vehicles switching to renewable natural gas, quicker vehicle turnover (ave. age 8 years vs. 10.5 years), light truck share reduced to 35%.</p>                                                            
-                    <p><strong>Level 2:</strong> Vehicle technology mix includes a higher percentage of electric vehicles (14%), average carbon intensity of fuels reduced by commercial vehicles switching to renewable natural gas, quicker vehicle turnover (ave. age 8 years vs. 10.5 years), light truck share reduced to 35%.</p>                                                            
+                    <p><strong>Level 0:</strong> Baseline vehicle technology mix (8% electric vehicles) and carbon intensity of fuels, but light-trucks remain 45% of the fleet, and the average vehicle age remains 10.5 years.</p>                                                            
+                    <p><strong>Level 1 (Reference):</strong> Baseline vehicle technology mix and carbon intensity of fuels, light truck share reduced to 35% of fleet, and average vehicle age declines (8 years).</p>                                                            
+                    <p><strong>Level 2:</strong> Vehicle technology mix includes a higher percentage of electric vehicles (14%), average carbon intensity of fuels reduced by commercial vehicles switching to renewable natural gas, light truck share reduced to 35% of fleet, and average vehicle age declines (8 years).</p>                                                                  
                 </div>
             </div>
             <div class='span3 pietitle' id='Gas' style='background-color:#A0A0A0'>
