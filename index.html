@@ -54,10 +54,19 @@
             fill: black;
             }
         .pop-crsr {
-            cursor:help
+            cursor: help
             }
         .sm-margin {
             margin: .1em;
+            }
+        .glyphicon {
+            color: darkgray;
+            }
+        .policy {
+            background-color: white;
+            }
+        .context {
+            background-color: lightgray;
             }
       }
     </style>
@@ -422,6 +431,7 @@
     <!--
     SET UP PIE CHART DISPLAYS OF CATEGORIES
     -->
+    <hr>
     <div class='container'>
         <!-- HEADING AND RESET LINK -->
         <div class='row'>
@@ -432,7 +442,7 @@
         </div>
         <!-- INPUT CATEGORY PIE CHARTS -->
         <div class='row'>
-            <div class='span3 pietitle' id='Community' style='background-color:#D0D0D0;'>
+            <div class='span3 pietitle policy' id='Community'>
                 <div>
                 <h5 class='text-center'><span class="pietitle">Community Design</span><span class="glyphicon glyphicon-info-sign pop-crsr" id='community-popover'></span></h5>
                 </div>
@@ -444,7 +454,7 @@
                     <p><strong>Level 4:</strong> Activity center growth, 4 x transit service, 55% diversion through large adoption of e-bikes, increase paid parking in activity centers & Ashland.</p>
                 </div>
             </div>
-              <div class='span3 pietitle' id='Marketing' style='background-color:#D0D0D0;'>
+              <div class='span3 pietitle policy' id='Marketing'>
                 <div>
                   <h5 class='text-center'><span class='pietitle'>Marketing/Incentives</span><span class="glyphicon glyphicon-info-sign pop-crsr" id='marketing-popover'></span></h5>
                 </div>
@@ -454,7 +464,7 @@
                     <p><strong>Level 2:</strong> Fully implement travel demand management, eco-driving, and ITS programs.</p>
                 </div>
             </div>
-            <div class='span3 pietitle' id='Pricing' style='background-color:#D0D0D0;'>
+            <div class='span3 pietitle policy' id='Pricing'>
                 <div>
                   <h5 class='text-center'><span class='pietitle'>Pricing</span><span class="glyphicon glyphicon-info-sign pop-crsr" id='pricing-popover'></span></h5>
                 </div>
@@ -465,7 +475,7 @@
                     <p><strong>Level 3:</strong> Pay-as-you-drive (PAYD) insurance, higher electricity costs (due to more renewables), 69% social cost recovery.</p>
                 </div>
             </div>
-            <div class='span3 pietitle' id='Fleet' style='background-color:#D0D0D0;'>
+            <div class='span3 pietitle policy' id='Fleet'>
                 <div>
                   <h5 class='text-center'><span class='pietitle'>Vehicles/Fuels</span><span class="glyphicon glyphicon-info-sign pop-crsr" id='fleet-popover'></span></h5>
                 </div>
@@ -476,7 +486,7 @@
                     <p><strong>Level 2:</strong> Vehicle technology mix includes a higher percentage of electric vehicles (14%), average carbon intensity of fuels reduced by commercial vehicles switching to renewable natural gas, light truck share reduced to 35% of fleet, and average vehicle age declines (8 years).</p>
                 </div>
             </div>
-            <div class='span3 pietitle' id='Gas' style='background-color:#A0A0A0'>
+            <div class='span3 pietitle context' id='Gas'>
                 <div>
                   <h5 class='text-center'><span class='pietitle'>Fuel Price (context)</span><span class="glyphicon glyphicon-info-sign pop-crsr" id='gas-popover'></span></h5>
                 </div>
@@ -487,7 +497,7 @@
                     <p><strong>Level 2:</strong> Real fuel price is four times the 2010 price.</p>
                 </div>
             </div>
-            <div class='span3 pietitle' id='Income' style='background-color:#A0A0A0'>
+            <div class='span3 pietitle context' id='Income'>
                 <div>
                 <h5 class='text-center'><span class='pietitle'>Income (context)</span><span class="glyphicon glyphicon-info-sign pop-crsr" id='income-popover'></span></h5>
                 </div>
@@ -498,7 +508,7 @@
                     <p><strong>Level 2:</strong> Real income grows at 50% greater rate than reference.</p>
                 </div>
             </div>
-            <div class='span3 pietitle' id='Growth' style='background-color:#A0A0A0'>
+            <div class='span3 pietitle context' id='Growth'>
                 <div>
                 <h5 class='text-center'><span class='pietitle'>Growth (context)</span><span class="glyphicon glyphicon-info-sign pop-crsr" id='growth-popover'></span></h5>
                 </div>
@@ -514,6 +524,7 @@
     <!--
     SET UP BAR CHART DISPLAYS OF OUTPUTS
     -->
+    <hr>
     <div class='container'>
         <!-- HEADING AND RESET LINK -->
         <div class='row'>
@@ -619,6 +630,7 @@
     <!--
     SET UP OUTPUT TABLE
     -->
+    <hr>
     <div class='container' style='font: 12px sans-serif;'>
         <div class='row'>
             <h3>Scenario Data Table</h3>
