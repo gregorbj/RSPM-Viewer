@@ -540,7 +540,7 @@
              </h3>
         </div>
         <!-- 1ST ROW OF OUTPUT MEASURE BAR CHARTS -->
-        <div class='row' style="text-align:center">
+        <div class='row'>
             <div class='span4' id='CO2e-Reduction'>
                 <div>
                 <h5 class='text-center'><span class='bartitle'>GHG Target Reduction (-19%)</span><span class="glyphicon glyphicon-info-sign pop-crsr" id='co2e-popover'></span></h5>
@@ -607,7 +607,7 @@
             </div>
             <div class='span4' id='Cost-Pct'>
                 <div>
-                <h5 class='text-center'><span class='bartitle'>Vehicle Cost % (All Inc.)</span><span class="glyphicon glyphicon-info-sign pop-crsr" id='cost-pct-popover'></span></h5>
+                <h5 class='text-center'><span class='bartitle'>Vehicle Cost % (All Income)</span><span class="glyphicon glyphicon-info-sign pop-crsr" id='cost-pct-popover'></span></h5>
                 <h5 class='text-center sm-margin'><span class='subtitle'>2038 Plans = <span id='Ref-Cost-Pct' class='stat'></span>%</span></h5>
                 <h5 class='text-center sm-margin'><span class='subtitle'>Average = <span id='Ave-Cost-Pct' class='stat'></span>%</span></h5>
                 </div>
@@ -617,7 +617,7 @@
             </div>
             <div class='span4' id='Low-Pct'>
                 <div>
-                <h5 class='text-center'><span class='bartitle'>Vehicle Cost % (Low Inc.)</span><span class="glyphicon glyphicon-info-sign pop-crsr" id='low-pct-popover'></span></h5>
+                <h5 class='text-center'><span class='bartitle'>Vehicle Cost % (Low Income)</span><span class="glyphicon glyphicon-info-sign pop-crsr" id='low-pct-popover'></span></h5>
                 <h5 class='text-center sm-margin'><span class='subtitle'>2038 Plans = <span id='Ref-Low-Pct' class='stat'></span>%</span></h5>
                 <h5 class='text-center sm-margin'><span class='subtitle'>Average = <span id='Ave-Low-Pct' class='stat'></span>%</span></h5>
                 </div>
@@ -820,9 +820,11 @@
         function iniAvg() {
             return {count:0, sum:0, avg:0, ref:0};
         }
+      
         // Establish the output group output measure averages
         var
-            allDim = facts.dimension( function(d) {return Math.round(d.CO2eTargetChange / d.CO2eTargetChange);} ),
+            //allDim = facts.dimension( function(d) {return Math.round(d.CO2eTargetChange / d.CO2eTargetChange);} ),
+            allDim = facts.dimension( function(d) {return d;} ),
             co2eReduceAveGroup = allDim.group().reduce(addAvg("CO2eTargetChange"), remAvg("CO2eTargetChange"), iniAvg),
             dvmtAveGroup = allDim.group().reduce(addAvg("DvmtCap"), remAvg("DvmtCap"), iniAvg),
             walkAveGroup = allDim.group().reduce(addAvg("WalkTripsCap"), remAvg("WalkTripsCap"), iniAvg),
@@ -845,10 +847,10 @@
         ;
         // Community category input levels
         communityPieInfo = {
-          1: "Level 1 (Adopted Plans): No change from 2010.",
-          2: "Level 2: Activity center growth,\n2 x transit service, 10% bike diversion.",
-          3: "Level 3: Activity center growth,\n4 x transit service, 10% bike diversion,\nincrease paid parking in activity centers & Ashland with cashout.",
-          4: "Level 4: Activity center growth,\n4 x transit service, 55% diversion through large adoption of e-bikes,\nincrease paid parking in activity centers & Ashland."
+          1: "L1 (Adopted Plans): No change from 2010.",
+          2: "L2: Activity center growth,\n2 x transit service, 10% bike diversion.",
+          3: "L3: Activity center growth,\n4 x transit service, 10% bike diversion,\nincrease paid parking in activity centers & Ashland with cashout.",
+          4: "L4: Activity center growth,\n4 x transit service, 55% diversion through large adoption of e-bikes,\nincrease paid parking in activity centers & Ashland."
         }
         communityPieChart.width(pieWidth)
             .height(pieHeight)
@@ -862,8 +864,8 @@
             communityPieChart.ordinalColors(["#a1d99b","#74c476","#31a354","#006d2c"]);
         // Marketing category input levels
         marketingPieInfo = {
-          1: "Level 1 (Adopted Plans): No change from 2010.",       
-          2: "Level 2: Fully implement travel demand management,\neco-driving, and ITS programs."
+          1: "L1 (Adopted Plans): No change from 2010.",       
+          2: "L2: Fully implement travel demand management,\neco-driving, and ITS programs."
         }
         marketingPieChart.width(pieWidth)
             .height(pieHeight)
@@ -877,9 +879,9 @@
             marketingPieChart.ordinalColors(["#9e9ac8","#6a51a3"]);
         // Pricing category input levels
         pricingPieInfo = {
-          1: "Level 1 (Adopted Plans): 2010 taxes and fees.",
-          2: "Level 2: Pay-as-you-drive (PAYD) insurance,\nhigher electricity costs (due to more renewables).",
-          3: "Level 3: Pay-as-you-drive (PAYD) insurance,\nhigher electricity costs (due to more renewables),\n69% social cost recovery."
+          1: "L1 (Adopted Plans): 2010 taxes and fees.",
+          2: "L2: Pay-as-you-drive (PAYD) insurance,\nhigher electricity costs (due to more renewables).",
+          3: "L3: Pay-as-you-drive (PAYD) insurance,\nhigher electricity costs (due to more renewables),\n69% social cost recovery."
         }
         pricingPieChart.width(pieWidth)
             .height(pieHeight)
@@ -893,9 +895,9 @@
             pricingPieChart.ordinalColors(["#fdbe85","#fd8d3c","#d94701"]);
         // Fleet category input levels
         fleetPieInfo = {
-          0: "Level 0: Baseline vehicle technology mix (8% electric vehicles)\nand carbon intensity of fuels,\nbut light-trucks remain 45% of the fleet,\nand the average vehicle age remains 10.5 years.",
-          1: "Level 1 (Reference): Baseline vehicle technology mix\nand carbon intensity of fuels,\nlight truck share reduced to 35% of fleet,\nand average vehicle age declines (8 years).",
-          2: "Level 2: Vehicle technology mix includes a higher percentage of electric vehicles (14%),\naverage carbon intensity of fuels reduced by\ncommercial vehicles switching to renewable natural gas,\nlight truck share reduced to 35% of fleet,\nand average vehicle age declines (8 years)."
+          0: "L0: Baseline vehicle technology mix (8% electric vehicles)\nand carbon intensity of fuels,\nbut light-trucks remain 45% of the fleet,\nand the average vehicle age remains 10.5 years.",
+          1: "L1 (Reference): Baseline vehicle technology mix\nand carbon intensity of fuels,\nlight truck share reduced to 35% of fleet,\nand average vehicle age declines (8 years).",
+          2: "L2: Vehicle technology mix includes a higher percentage of electric vehicles (14%),\naverage carbon intensity of fuels reduced by\ncommercial vehicles switching to renewable natural gas,\nlight truck share reduced to 35% of fleet,\nand average vehicle age declines (8 years)."
         }
         fleetPieChart.width(pieWidth)
             .height(pieHeight)
@@ -909,9 +911,9 @@
             fleetPieChart.ordinalColors(["#6baed6","#3182bd","#08519c"]);
         // Gas price category input levels
         gasPieInfo = {
-          0: "Level 0: Real fuel price (i.e. exclusive of inflation)\nstays at 2010 purchasing power.",
-          1: "Level 1: (Reference): Real fuel price doubles relative to 2010.",
-          2: "Level 2: Real fuel price is four times the 2010 price."
+          0: "L0: Real fuel price (i.e. exclusive of inflation)\nstays at 2010 purchasing power.",
+          1: "L1 (Reference): Real fuel price doubles relative to 2010.",
+          2: "L2: Real fuel price is four times the 2010 price."
         }
         gasPieChart.width(pieWidth)
             .height(pieHeight)
@@ -926,9 +928,9 @@
             gasPieChart.ordinalColors(["#fcae91","#fb6a4a","#cb181d"]);
         // Income category input levels
         incomePieInfo = {
-          0: "Level 0: Real income (i.e. exclusive of inflation) remains at 2010 level.",
-          1: "Level 1 (Reference): Real income grows at historic 80-year\ncompound average growth rate of 0.7% per year.",
-          2: "Level 2: Real income grows at 50% greater rate than reference."
+          0: "L0: Real income (i.e. exclusive of inflation) remains at 2010 level.",
+          1: "L1 (Reference): Real income grows at historic 80-year\ncompound average growth rate of 0.7% per year.",
+          2: "L2: Real income grows at 50% greater rate than reference."
         }
         incomePieChart.width(pieWidth)
             .height(pieHeight)
@@ -943,8 +945,8 @@
             incomePieChart.ordinalColors(["#fe9929","#d95f0e","#993404"]);
         // Growth category input levels
         growthPieInfo = {
-          0: "Level 0: Population growth is lower than in assumed plans (0.9% per year).",
-          1: "Level 1 (Reference): Population growth occurs as assumed in plans (1.4% per year)."
+          0: "L0: Population growth is lower than in assumed plans (0.9% per year).",
+          1: "L1 (Reference): Population growth occurs as assumed in plans (1.4% per year)."
         }
         growthPieChart.width(pieWidth)
             .height(pieHeight)
@@ -1093,14 +1095,23 @@
 
         // Display the reference values and average values for outputs
         //------------------------------------------------------------
-        targetRefNum.group(co2eReduceAveGroup).valueAccessor(function(p) {return p.value.ref;});
-        dvmtRefNum.group(dvmtAveGroup).valueAccessor(function(p) {return p.value.ref;});
-        walkRefNum.group(walkAveGroup).valueAccessor(function(p) {return p.value.ref;});
-        pollutionRefNum.group(pollutionAveGroup).valueAccessor(function(p) {return p.value.ref;});
-        fuelRefNum.group(fuelAveGroup).valueAccessor(function(p) {return p.value.ref;});
-        truckDelayRefNum.group(truckDelayAveGroup).valueAccessor(function(p) {return p.value.ref;});
-        costPctRefNum.group(costPctAveGroup).valueAccessor(function(p) {return p.value.ref;});
-        lowPctRefNum.group(lowPctAveGroup).valueAccessor(function(p) {return p.value.ref;});
+        targetRefNum.group(co2eReduceAveGroup)
+          .valueAccessor(function(p) {return p.value.ref;})
+          .formatNumber(d3.format(".1g"));
+        dvmtRefNum.group(dvmtAveGroup)
+          .valueAccessor(function(p) {return p.value.ref;});
+        walkRefNum.group(walkAveGroup)
+          .valueAccessor(function(p) {return p.value.ref;});
+        pollutionRefNum.group(pollutionAveGroup)
+          .valueAccessor(function(p) {return p.value.ref;});
+        fuelRefNum.group(fuelAveGroup)
+          .valueAccessor(function(p) {return p.value.ref;});
+        truckDelayRefNum.group(truckDelayAveGroup)
+          .valueAccessor(function(p) {return p.value.ref;});
+        costPctRefNum.group(costPctAveGroup)
+          .valueAccessor(function(p) {return p.value.ref;});
+        lowPctRefNum.group(lowPctAveGroup)
+          .valueAccessor(function(p) {return p.value.ref;});
 
         targetAveNum.group(co2eReduceAveGroup).valueAccessor(function(p) {return p.value.avg;});
         dvmtAveNum.group(dvmtAveGroup).valueAccessor(function(p) {return p.value.avg;});
