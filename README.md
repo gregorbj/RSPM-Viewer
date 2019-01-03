@@ -1,2 +1,2 @@
 # RSPM Viewer
-Demonstration of web application for viewing and evaluating the results of multiple RSPM scenarios. Application is visible here: https://gregorbj.github.io/RSPM-Viewer/
+Demonstration of web application for viewing and evaluating the results of multiple RSPM scenarios. Application is visible here: https://gregorbj.github.io/RSPM-Viewer/. Note that there are no plans for further development of this viewer. Viewer development is now being done as part of the VisionEval project. The latest viewer can be seen at the following link: http://gregorbj.github.io/VisionEval/sources/VEScenarioViewer/verspm.html
